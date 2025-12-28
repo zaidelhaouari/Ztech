@@ -1,0 +1,1119 @@
+C'est une excellente idée pour simplifier la mise en ligne !
+
+Voici **tout le code réuni en un seul fichier** (HTML + CSS + JavaScript).
+
+**Instructions :**
+1. Copie tout le code ci-dessous.
+2. Colle-le dans un fichier nommé **`index.html`**.
+3. C'est tout ! Tu n'as besoin que de ce fichier unique.
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Création de sites web professionnels | Ztech</title>
+  
+  <!-- Icônes et Polices -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- STYLE CSS INTÉGRÉ -->
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #4361ee;
+      --primary-dark: #3a56d4;
+      --secondary-color: #7209b7;
+      --accent-color: #f72585;
+      --dark-color: #1a1a2e;
+      --light-color: #f8f9fa;
+      --gray-color: #6c757d;
+      --light-gray: #e9ecef;
+      --success-color: #4cc9f0;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+      --border-radius: 12px;
+      --container-width: 1200px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2.2rem; }
+    h3 { font-size: 1.8rem; }
+    h4 { font-size: 1.4rem; }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--gray-color);
+    }
+
+    .highlight {
+      color: var(--primary-color);
+      position: relative;
+    }
+
+    .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background-color: rgba(67, 97, 238, 0.2);
+      z-index: -1;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .btn-large {
+      padding: 16px 36px;
+      font-size: 1.1rem;
+    }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      padding: 15px 0;
+      transition: var(--transition);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-placeholder {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .logo-text h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: var(--gray-color);
+      margin: 0;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--dark-color);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-color);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--dark-color);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+    }
+
+    .hero-overlay {
+      width: 100%;
+      padding: 100px 0;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      color: white;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
+      color: rgba(255, 255, 255, 0.8);
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      animation: fadeInUp 1s ease 0.4s both;
+    }
+
+    /* Sections */
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--primary-color);
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--gray-color);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 40px 30px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+      border: 1px solid var(--light-gray);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      color: white;
+      font-size: 2rem;
+    }
+
+    .service-card h3 {
+      margin-bottom: 15px;
+      color: var(--dark-color);
+    }
+
+    .service-features {
+      list-style: none;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .service-features li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service-features i {
+      color: var(--success-color);
+    }
+
+    /* Process */
+    .dark {
+      background-color: var(--dark-color);
+      color: white;
+    }
+
+    .dark .section-subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: var(--primary-color);
+      z-index: 1;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: var(--border-radius);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0 auto 20px;
+      color: white;
+      border: 5px solid var(--dark-color);
+    }
+
+    .step h3 {
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .step p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Why Us */
+    .why-us-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .why-us-card {
+      text-align: center;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .why-us-icon {
+      width: 60px;
+      height: 60px;
+      background: #f8f9fa;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.5rem;
+      color: #4361ee;
+    }
+
+    /* Urgency */
+    .urgency {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    .urgency-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .urgency-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .urgency-stats {
+      display: flex;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--gray-color);
+    }
+
+    .urgency-action {
+      text-align: center;
+    }
+
+    .small-text {
+      font-size: 0.9rem;
+      margin-top: 15px;
+      color: var(--gray-color);
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact-info h2 {
+      margin-bottom: 10px;
+    }
+
+    .contact-subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .contact-details {
+      margin-top: 40px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .contact-item i {
+      width: 50px;
+      height: 50px;
+      background-color: var(--light-gray);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-color);
+      font-size: 1.2rem;
+    }
+
+    .contact-item h4 {
+      margin-bottom: 5px;
+      color: var(--dark-color);
+    }
+
+    .contact-item p {
+      margin: 0;
+      color: var(--gray-color);
+    }
+
+    /* Form */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px 20px;
+      border: 2px solid var(--light-gray);
+      border-radius: var(--border-radius);
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 60px 0 30px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .footer-logo h3 {
+      color: white;
+      margin-bottom: 5px;
+    }
+
+    .footer-logo p {
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links h4 {
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: white;
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 30px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.7);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-credits i {
+      color: var(--accent-color);
+      margin: 0 5px;
+    }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 3px #999;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .whatsapp-float:hover {
+      color: white;
+      background-color: #128C7E;
+      transform: scale(1.1);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-title { font-size: 2.8rem; }
+      .urgency-content { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      .nav-menu.active { display: flex; }
+      .menu-toggle { display: block; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-subtitle { font-size: 1.1rem; }
+      .hero-buttons { flex-direction: column; }
+      .process-steps::before { display: none; }
+      .footer-bottom { flex-direction: column; gap: 15px; }
+      .whatsapp-float { width: 50px; height: 50px; font-size: 25px; bottom: 20px; right: 20px; }
+    }
+
+    @media (max-width: 576px) {
+      .section { padding: 70px 0; }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.8rem; }
+      .hero-title { font-size: 1.8rem; }
+      .urgency-stats { flex-direction: column; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo-container">
+        <div class="logo-placeholder">
+          <i class="fas fa-code"></i>
+        </div>
+        <div class="logo-text">
+          <h1>Ztech</h1>
+          <p class="tagline">Développeur Web</p>
+        </div>
+      </div>
+      
+      <nav class="nav-menu">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#process" class="nav-link">Processus</a>
+        <a href="#contact" class="btn btn-primary">Contact</a>
+      </nav>
+      
+      <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-overlay">
+    <div class="container">
+      <div class="hero-content">
+        <h2 class="hero-title">Des sites web <span class="highlight">modernes</span> qui inspirent confiance</h2>
+        <p class="hero-subtitle">Je crée des sites professionnels pour entreprises et commerces de tous secteurs</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary btn-large">
+            <i class="fas fa-rocket"></i> Obtenir mon site
+          </a>
+          <a href="#services" class="btn btn-secondary btn-large">
+            <i class="fas fa-eye"></i> Voir les services
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Mes Services</h2>
+      <p class="section-subtitle">Des solutions adaptées à vos besoins</p>
+    </div>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <h3>Sites Web Professionnels</h3>
+        <p>Design clair, moderne et rassurant pour vos clients. Interface intuitive et expérience utilisateur optimisée.</p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Design personnalisé</li>
+          <li><i class="fas fa-check"></i> Optimisé SEO</li>
+          <li><i class="fas fa-check"></i> Hébergement inclus</li>
+        </ul>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3>Responsive Design</h3>
+        <p>Votre site s'affiche parfaitement sur tous les appareils : mobile, tablette et ordinateur.</p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Mobile-first</li>
+          <li><i class="fas fa-check"></i> Navigation intuitive</li>
+          <li><i class="fas fa-check"></i> Temps de chargement optimisé</li>
+        </ul>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+        <h3>Spécialisé Professionnels</h3>
+        <p>Je comprends vos besoins métiers et crée des sites efficaces qui répondent à vos objectifs.</p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Analyse des besoins</li>
+          <li><i class="fas fa-check"></i> Solutions sur mesure</li>
+          <li><i class="fas fa-check"></i> Support continu</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process Section -->
+<section class="section process dark" id="process">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Processus Simple</h2>
+      <p class="section-subtitle">3 étapes pour votre site web</p>
+    </div>
+    
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Échange & Analyse</h3>
+        <p>Nous discutons de vos besoins, objectifs et publics cibles pour définir le projet.</p>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Création & Développement</h3>
+        <p>Je conçois et développe votre site avec des retours réguliers pour validation.</p>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Mise en ligne & Formation</h3>
+        <p>Votre site est lancé ! Je vous forme pour gérer votre contenu simplement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Us Section -->
+<section class="section why-us">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Pourquoi choisir Ztech ?</h2>
+    </div>
+    <div class="why-us-grid">
+      <div class="why-us-card">
+        <div class="why-us-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <h3>Livraison rapide</h3>
+        <p>Votre site prêt en 7 jours maximum après validation du projet.</p>
+      </div>
+      <div class="why-us-card">
+        <div class="why-us-icon">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3>Support réactif</h3>
+        <p>Disponible 7j/7 pour répondre à toutes vos questions.</p>
+      </div>
+      <div class="why-us-card">
+        <div class="why-us-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3>100% responsive</h3>
+        <p>Votre site s'adapte parfaitement à tous les appareils.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Urgency Section -->
+<section class="section urgency">
+  <div class="container">
+    <div class="urgency-content">
+      <div class="urgency-text">
+        <h2>Un accompagnement de qualité</h2>
+        <p>Pour garantir un travail sérieux, un suivi personnalisé et une qualité irréprochable.</p>
+        <div class="urgency-stats">
+          <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Satisfaction</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">24h</span>
+            <span class="stat-label">Réponse max</span>
+          </div>
+        </div>
+      </div>
+      <div class="urgency-action">
+        <a href="#contact" class="btn btn-primary btn-large">
+          <i class="fas fa-calendar-check"></i> Réserver mon créneau
+        </a>
+        <p class="small-text">Réponse rapide garantie</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Contactez-moi</h2>
+        <p class="contact-subtitle">Réponse rapide • Devis gratuit • Sans engagement</p>
+        
+        <div class="contact-details">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <p>z.techh101@gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h4>Téléphone</h4>
+              <p>06 69 92 84 37</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <div>
+              <h4>Disponibilité</h4>
+              <p>7/7j et 24/24h</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form">
+        <form id="contactForm">
+          <!-- NOM -->
+          <div class="form-group">
+            <input type="text" name="nom" placeholder="Votre nom" required>
+          </div>
+
+          <!-- EMAIL -->
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Votre email" required>
+          </div>
+
+          <!-- TÉLÉPHONE -->
+          <div class="form-group">
+            <input type="tel" name="telephone" placeholder="Votre téléphone">
+          </div>
+
+          <!-- TYPE DE PROJET -->
+          <div class="form-group">
+            <select name="type_projet" required>
+              <option value="" disabled selected>Type de projet</option>
+              <option value="site-vitrine">Site vitrine</option>
+              <option value="site-ecommerce">Site e-commerce</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+
+          <!-- MESSAGE -->
+          <div class="form-group">
+            <textarea name="message" placeholder="Décrivez votre projet..." rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">
+            <i class="fas fa-paper-plane"></i> Envoyer ma demande
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <div class="logo-placeholder">
+          <i class="fas fa-code"></i>
+        </div>
+        <div>
+          <h3>Ztech</h3>
+          <p>Création de sites web professionnels</p>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Liens rapides</h4>
+        <a href="#services">Services</a>
+        <a href="#process">Processus</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Ztech. Tous droits réservés.</p>
+      <p class="footer-credits">Site créé avec <i class="fas fa-heart"></i> par Ztech</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bouton WhatsApp -->
+<a href="https://wa.me/33669928437?text=Bonjour%20Ztech,%20je%20souhaite%20discuter%20d'un%20projet." class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- JAVASCRIPT ET EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+  /* 1. INITIALISATION EMAILJS */
+  // IMPORTANT : Assurez-vous que l'ID ci-dessous est bien votre User ID.
+  // Vous aviez mentionné "DDvXgBd7yMBcXqoTH0Id9" précédemment.
+  emailjs.init("DDvXgBd7yMBcXqoTH0Id9");
+
+  // Gestion de l'envoi du formulaire
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Empêche le rechargement de la page
+
+      // Indication de chargement sur le bouton
+      const btn = this.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+
+      // Envoi via EmailJS
+      emailjs.sendForm(
+        'service_0qw7son',   // Ton Service ID
+        'template_hgixuxh',  // Ton Template ID
+        this                 // Le formulaire
+      ).then(() => {
+        // Succès
+        alert("✅ Merci ! Votre message a bien été envoyé. Je vous contacte très vite !");
+        this.reset(); // Vider le formulaire
+        btn.innerHTML = originalText;
+      }, (error) => {
+        // Erreur
+        console.error('Erreur EmailJS :', error);
+        alert("❌ Une erreur est survenue lors de l'envoi : " + JSON.stringify(error));
+        btn.innerHTML = originalText;
+      });
+    });
+  }
+
+  /* 2. MENU MOBILE */
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      menuToggle.innerHTML = navMenu.classList.contains('active')
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
+    });
+  }
+
+  // Fermer le menu en cliquant sur un lien
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+  });
+
+  /* 3. ANIMATION AU SCROLL */
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+
+  // Observer les éléments à animer
+  document.querySelectorAll('.service-card, .step, .contact-item').forEach(el => {
+    observer.observe(el);
+  });
+
+  /* 4. EFFET HEADER AU SCROLL */
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 100) {
+      header.style.padding = '10px 0';
+      header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+    } else {
+      header.style.padding = '15px 0';
+      header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+    }
+  });
+</script>
+
+</body>
+</html>
+```
